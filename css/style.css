@@ -1,0 +1,35 @@
+/*scoreboard*/
+
+/*Game Board*/
+canvas {
+	margin-left: 200px;
+	margin-top: 200px;
+	padding-bottom: 50px;
+}
+
+/*player*/
+.boxer {
+	margin: 0 auto;
+	max-width: 200px;
+	height: 100px;
+	padding-bottom: 100px;
+}
+
+#right {
+	width: 80px;
+	height: 80px;
+	transform: rotate(-135deg);
+}
+
+#left {
+	width: 80px;
+	height: 80px;
+	transform: rotate(135deg);
+}
+
+/*bottom buttons*/
+button {
+	background-color: #CD00FF;
+	border: 3px solid black;
+	margin: 0 auto;
+}

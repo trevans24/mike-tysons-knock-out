@@ -1,5 +1,12 @@
-var sec = 60;
+var canvas = document.getElementById('game-board'),
+	ctx = canvas.getContext('2d'),
+	background = new Image();
 
-function countdown(){
-	setTimeout(decrement(), 1000);
-}
+canvas.width = 1024;
+canvas.height = 600;
+
+background.src = "images/boxing-ring.png";
+
+background.onload = function(){
+	ctx.drawImage(background,0,0);
+};

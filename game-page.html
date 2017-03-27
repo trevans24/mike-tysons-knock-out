@@ -2,20 +2,29 @@
 <html>
 <head>
 	<title>Mike Tyson's Knock Out</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<!-- scoreboards -->
 	<div class="boards">
 		<div class="score-board"></div>
-		<div class="timer"></div>
+		<div id="timer"></div>
 	</div>
-	<div class="game-board">
-		<img src="images/boxing-ring.png" height="700px" width="1100px">
-	</div>
+<!-- gameboard -->
+	<canvas id="game-board">
+		<!-- player -->
+		<div class="boxer">
+			<img id="left" src="images/boxing-glove-left.png" height="100px" width="100px">
+			<img id="right" src="images/boxing-glove-right.png" height="100px" width="100px">
+		</div>
+	</canvas>
+	<!-- bottom buttons -->
 	<div class="buttons">
 		<button>Reset</button>
 		<button>Start Game</button>
 		<button>Instructions</button>
 	</div>
+
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
