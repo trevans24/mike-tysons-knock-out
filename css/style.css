@@ -28,8 +28,16 @@ canvas {
 }
 
 /*bottom buttons*/
+.buttons {
+	margin-left: 350px;
+}
 button {
 	background-color: #CD00FF;
 	border: 3px solid black;
 	margin: 0 auto;
+	height: 60px;
+	width: 150px;
+	margin: 0 140px 0 0;
+	color: white;
+	font-family: "Press Start 2P";
 }
