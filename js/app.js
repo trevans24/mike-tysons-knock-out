@@ -16,12 +16,13 @@ var canvas = document.querySelector('#game-board'),
 	rightY = 400,
 	time = 60,
 	t,
-	score = 0,
+	score = -1,
 	s,
 	scoreDiv = document.querySelector('#score-board'),
 	timerDiv = document.querySelector('#timer'),
 	start = document.querySelector('#start'),
-	instructions = document.querySelector('#instructions');
+	instructions = document.querySelector('#instructions'),
+	currentPlayer = 1;
 
 //canvas size
 canvas.width = 1024;
@@ -39,9 +40,9 @@ star.src = "images/star.png";
 console.log('test1');
 gameBoard.onload = function(){
 	ctx.drawImage(gameBoard,0,0);
+	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 	ctx.drawImage(leftHand, 400, 400, 100, 100);
 	ctx.drawImage(rightHand, 520, 400, 100, 100);
-	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 };
 
 // function to help animation of elements, clears canvas for new drawings
@@ -70,11 +71,6 @@ function punch(e){
 		score1();
 	} 
 	console.log('left3');
-	// 	
-	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 
 	if (e.keyCode == 68){
 		console.log('right1');
@@ -90,11 +86,6 @@ function punch(e){
 		score1();
 	}
 	console.log('right3');
-	// clearCanvas();
-	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 }
 
 console.log('test5');
@@ -110,11 +101,6 @@ function retract(e){
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		console.log('left6');
 	} 
-	// clearCanvas();
-	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 
 	if (e.keyCode == 68){
 		console.log('right4');
@@ -127,11 +113,6 @@ function retract(e){
 		ctx.drawImage(rightHand, 520, rightY, 100, 100);
 		console.log('right6');
 	}
-	// clearCanvas();
-	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 	
 }
 //scoreboard
@@ -146,7 +127,7 @@ function score1(){
 function stopScore(){
 	if (time === 0);
 	clearTimeout(s);
-	let score = s;
+	score = s;
 }
 //timer go
 function timer(){
@@ -162,6 +143,7 @@ function timeZero(){
 	if (time === 0) {
 			alert('Round Over');
 			stopTime();
+			switchPlayer();
 		}
 }
 
@@ -170,6 +152,15 @@ function stopTime(){
 	clearTimeout(t);
 	time = 60;
 }
+//switch players
+function switchPlayer(){
+	if(currentPlayer === 1){
+		currentPlayer = 2;
+	} else {
+		win();
+	}
+}
+
 //check for win
 // var a = //player ones score
 // var b = //player twos score
@@ -188,7 +179,9 @@ function stopTime(){
 start.addEventListener("click", startGame);
 
 function startGame(){
+	start.style.opacity = '0';
 	timer();
+	score1();
 }
 //instructions button
 // instructions.addEventListener("click", ){
