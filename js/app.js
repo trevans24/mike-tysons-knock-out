@@ -8,12 +8,20 @@ var canvas = document.querySelector('#game-board'),
 	leftHand = new Image(),
 	rightHand = new Image(),
 	mikeTyson = new Image(),
+	pow = new Image(),
+	star = new Image(),
 	leftX = 400,
-	leftY = 500,
+	leftY = 400,
 	rightX = 520,
-	rightY = 500,
+	rightY = 400,
+	time = 60,
+	t,
+	score = 0,
+	s,
+	scoreDiv = document.querySelector('#score-board'),
 	timerDiv = document.querySelector('#timer'),
-	start = document.querySelector('#start');
+	start = document.querySelector('#start'),
+	instructions = document.querySelector('#instructions');
 
 //canvas size
 canvas.width = 1024;
@@ -24,14 +32,16 @@ gameBoard.src = "images/boxing-ring.png";
 leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
+pow.src = "images/pow.png";
+star.src = "images/star.png";
 
 //on load up canvas is drawn
 console.log('test1');
 gameBoard.onload = function(){
 	ctx.drawImage(gameBoard,0,0);
-	ctx.drawImage(leftHand, 400, 500, 100, 100);
-	ctx.drawImage(rightHand, 520, 500, 100, 100);
-	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
+	ctx.drawImage(leftHand, 400, 400, 100, 100);
+	ctx.drawImage(rightHand, 520, 400, 100, 100);
+	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 };
 
 // function to help animation of elements, clears canvas for new drawings
@@ -47,69 +57,109 @@ document.onkeyup = retract;
 
 console.log('test4');
 function punch(e){
-	// if(e.keyCode == 65){
-	// 	console.log('left1');
-	// 	leftY -= 200;
-	// 	console.log('left2');
-	// } 
-	// console.log('left3');
-	// clearCanvas();
+	if(e.keyCode == 65){
+		console.log('left1');
+		leftY -= 175;
+		console.log('left2');
+	
+		clearCanvas();
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+		ctx.drawImage(leftHand, 400, leftY, 100, 100);
+		ctx.drawImage(rightHand, 520, 400, 100, 100);
+		score1();
+	} 
+	console.log('left3');
+	// 	
 	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(leftHand, 400, leftY, 100, 100);
-	// ctx.drawImage(rightHand, 520, 500, 100, 100);
-	// ctx.drawImage(mikeTyson, 240, 60, 500, 500);
+	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	// ctx.drawImage(leftHand, 400, 400, 100, 100);
+	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 
 	if (e.keyCode == 68){
 		console.log('right1');
-		rightY -= 200;
+		rightY -= 175;
 		console.log('right2');
+
+		clearCanvas();
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+		ctx.drawImage(leftHand, 400, 400, 100, 100);
+		ctx.drawImage(rightHand, 520, rightY, 100, 100);
+		ctx.drawImage(pow, 475, 0, 300, 300);
+		score1();
 	}
 	console.log('right3');
-	clearCanvas();
-	ctx.drawImage(gameBoard,0,0);
-	ctx.drawImage(leftHand, 400, 500, 100, 100);
-	ctx.drawImage(rightHand, 520, rightY, 100, 100);
-	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
+	// clearCanvas();
+	// ctx.drawImage(gameBoard,0,0);
+	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	// ctx.drawImage(leftHand, 400, 400, 100, 100);
+	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 }
 
 console.log('test5');
 function retract(e){
-	// if(e.keyCode == 65){
-	// 	console.log('left4');
-	// 	leftY += 200;
-	// 	console.log('left5');
-	// } 
+	if(e.keyCode == 65){
+		console.log('left4');
+		leftY += 175;
+		console.log('left5');
+
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+		ctx.drawImage(leftHand, 400, leftY, 100, 100);
+		ctx.drawImage(rightHand, 520, 400, 100, 100);
+		console.log('left6');
+	} 
 	// clearCanvas();
 	// ctx.drawImage(gameBoard,0,0);
-	// ctx.drawImage(leftHand, 400, leftY, 100, 100);
-	// ctx.drawImage(rightHand, 520, 500, 100, 100);
-	// ctx.drawImage(mikeTyson, 240, 60, 500, 500);
-	// console.log('left6');
+	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	// ctx.drawImage(leftHand, 400, 400, 100, 100);
+	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 
 	if (e.keyCode == 68){
 		console.log('right4');
-		rightY += 200;
+		rightY += 175;
 		console.log('right5');
+
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+		ctx.drawImage(leftHand, 400, 400, 100, 100);
+		ctx.drawImage(rightHand, 520, rightY, 100, 100);
+		console.log('right6');
 	}
-	clearCanvas();
-	ctx.drawImage(gameBoard,0,0);
-	ctx.drawImage(leftHand, 400, 500, 100, 100);
-	ctx.drawImage(rightHand, 520, rightY, 100, 100);
-	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
-	console.log('right6');
+	// clearCanvas();
+	// ctx.drawImage(gameBoard,0,0);
+	// ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	// ctx.drawImage(leftHand, 400, 400, 100, 100);
+	// ctx.drawImage(rightHand, 520, 400, 100, 100);
+	
 }
 //scoreboard
+function score1(){
+	s = setTimeout(function(){
+		score ++;
+		scoreDiv.innerHTML = score;
+	});
 
+}
+
+function stopScore(){
+	if (time === 0);
+	clearTimeout(s);
+	let score = s;
+}
 //timer go
-var time = 60;
-var t;
 function timer(){
 	t = setTimeout(function(){
-		time--;
+		time --;
 		timerDiv.innerHTML = time;
 		timer();
 	}, 1000);
-		if (time === 0) {
+	timeZero();
+}
+
+function timeZero(){
+	if (time === 0) {
 			alert('Round Over');
 			stopTime();
 		}
@@ -141,3 +191,6 @@ function startGame(){
 	timer();
 }
 //instructions button
+// instructions.addEventListener("click", ){
+
+// }
