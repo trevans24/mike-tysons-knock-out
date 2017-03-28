@@ -1,4 +1,6 @@
 //game board
+
+//variables needed
 console.log('test');
 var canvas = document.querySelector('#game-board'),
 	ctx = canvas.getContext('2d'),
@@ -9,16 +11,21 @@ var canvas = document.querySelector('#game-board'),
 	leftX = 400,
 	leftY = 500,
 	rightX = 520,
-	rightY = 500;
+	rightY = 500,
+	time =60,
+	timerDiv = document.querySelector('#timer');
 
+//canvas size
 canvas.width = 1024;
 canvas.height = 600;
 
+//canvas images
 background.src = "images/boxing-ring.png";
 leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
 
+//on load up canvas is drawn
 console.log('test1');
 background.onload = function(){
 	ctx.drawImage(background,0,0);
@@ -27,11 +34,12 @@ background.onload = function(){
 	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
 };
 
-// function to help animation of elements
+// function to help animation of elements, clears canvas for new drawings
 console.log('test2');
 function clearCanvas(){
 	canvas.width = canvas.width;
 }
+
 //punch animation on keypress
 console.log('test3');
 document.onkeydown = punch;
@@ -93,7 +101,14 @@ function retract(e){
 //scoreboard
 
 //timer
-
+timer();
+function timer(){
+	setTimeout(function(){
+		time--;
+		timerDiv.innerHTML = time;
+		timer();
+	}, 1000);
+}
 //check for win
 // var a = //player ones score
 // var b = //player twos score
@@ -106,3 +121,8 @@ function retract(e){
 // 	}
 // };
 
+//reset button
+
+//start game button
+
+//instructions button
