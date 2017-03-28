@@ -1,9 +1,54 @@
+/*title of game*/
+h1 {
+	font-family: "Press Start 2P";
+	text-align: center;
+	font-size: 58px;
+	background: -webkit-linear-gradient(#F39728, #B22C22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+	font-family: "Press Start 2P";
+	text-align: center;
+	font-size: 48px;
+	background: -webkit-linear-gradient(#F39728, #B22C22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading {
+	background: url("../images/background.png");
+	height: 200px;
+}
+
 /*scoreboard*/
+.boards{
+	display: block;
+}
+
+.score-board {
+	border: 3px solid black;
+	background-color: #71B1EC;
+	color: white;
+	height: 30px;
+	width: 200px;
+	margin: 0 auto;
+}
+
+#timer {
+	border: 3px solid black;
+	background-color: #B22C22;
+	color: white;
+	height: 30px;
+	width: 200px;
+	margin: 0 auto;
+}
 
 /*Game Board*/
 canvas {
+	padding-top: 10px;
 	margin-left: 200px;
-	margin-top: 200px;
 	padding-bottom: 50px;
 }
 
