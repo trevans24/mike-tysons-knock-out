@@ -41,7 +41,7 @@ console.log('test4');
 function punch(e){
 	// if(e.keyCode == 65){
 	// 	console.log('left1');
-	// 	leftY -= 100;
+	// 	leftY -= 200;
 	// 	console.log('left2');
 	// } 
 	// console.log('left3');
@@ -53,7 +53,7 @@ function punch(e){
 
 	if (e.keyCode == 68){
 		console.log('right1');
-		rightY -= 100;
+		rightY -= 200;
 		console.log('right2');
 	}
 	console.log('right3');
@@ -68,7 +68,7 @@ console.log('test5');
 function retract(e){
 	// if(e.keyCode == 65){
 	// 	console.log('left4');
-	// 	leftY += 100;
+	// 	leftY += 200;
 	// 	console.log('left5');
 	// } 
 	// clearCanvas();
@@ -80,7 +80,7 @@ function retract(e){
 
 	if (e.keyCode == 68){
 		console.log('right4');
-		rightY += 100;
+		rightY += 200;
 		console.log('right5');
 	}
 	clearCanvas();
