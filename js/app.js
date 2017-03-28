@@ -20,6 +20,7 @@ var canvas = document.querySelector('#game-board'),
 	s,
 	scoreDiv = document.querySelector('#score-board'),
 	timerDiv = document.querySelector('#timer'),
+	playerScore = document.querySelector('#p1score'),
 	start = document.querySelector('#start'),
 	instructions = document.querySelector('#instructions'),
 	currentPlayer = 1;
@@ -129,6 +130,11 @@ function stopScore(){
 	clearTimeout(s);
 	score = s;
 }
+
+//player 1 scoreboard
+function scoreboard(){
+	score = s;
+}
 //timer go
 function timer(){
 	t = setTimeout(function(){
@@ -144,6 +150,7 @@ function timeZero(){
 			alert('Round Over');
 			stopTime();
 			switchPlayer();
+			scoreboard();
 		}
 }
 
