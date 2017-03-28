@@ -100,18 +100,25 @@ function retract(e){
 }
 //scoreboard
 
-//timer
-
+//timer go
 var time = 60;
+var t;
 function timer(){
-	setTimeout(function(){
+	t = setTimeout(function(){
 		time--;
 		timerDiv.innerHTML = time;
 		timer();
 	}, 1000);
 		if (time === 0) {
-			alert('Game Over');
+			alert('Round Over');
+			stopTime();
 		}
+}
+
+//timer stop
+function stopTime(){
+	clearTimeout(t);
+	time = 60;
 }
 //check for win
 // var a = //player ones score
