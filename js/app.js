@@ -4,7 +4,7 @@
 console.log('test');
 var canvas = document.querySelector('#game-board'),
 	ctx = canvas.getContext('2d'),
-	background = new Image(),
+	gameBoard = new Image(),
 	leftHand = new Image(),
 	rightHand = new Image(),
 	mikeTyson = new Image(),
@@ -12,23 +12,23 @@ var canvas = document.querySelector('#game-board'),
 	leftY = 500,
 	rightX = 520,
 	rightY = 500,
-	time =60,
-	timerDiv = document.querySelector('#timer');
+	timerDiv = document.querySelector('#timer'),
+	start = document.querySelector('#start');
 
 //canvas size
 canvas.width = 1024;
 canvas.height = 600;
 
 //canvas images
-background.src = "images/boxing-ring.png";
+gameBoard.src = "images/boxing-ring.png";
 leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
 
 //on load up canvas is drawn
 console.log('test1');
-background.onload = function(){
-	ctx.drawImage(background,0,0);
+gameBoard.onload = function(){
+	ctx.drawImage(gameBoard,0,0);
 	ctx.drawImage(leftHand, 400, 500, 100, 100);
 	ctx.drawImage(rightHand, 520, 500, 100, 100);
 	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
@@ -54,7 +54,7 @@ function punch(e){
 	// } 
 	// console.log('left3');
 	// clearCanvas();
-	// ctx.drawImage(background,0,0);
+	// ctx.drawImage(gameBoard,0,0);
 	// ctx.drawImage(leftHand, 400, leftY, 100, 100);
 	// ctx.drawImage(rightHand, 520, 500, 100, 100);
 	// ctx.drawImage(mikeTyson, 240, 60, 500, 500);
@@ -66,7 +66,7 @@ function punch(e){
 	}
 	console.log('right3');
 	clearCanvas();
-	ctx.drawImage(background,0,0);
+	ctx.drawImage(gameBoard,0,0);
 	ctx.drawImage(leftHand, 400, 500, 100, 100);
 	ctx.drawImage(rightHand, 520, rightY, 100, 100);
 	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
@@ -80,7 +80,7 @@ function retract(e){
 	// 	console.log('left5');
 	// } 
 	// clearCanvas();
-	// ctx.drawImage(background,0,0);
+	// ctx.drawImage(gameBoard,0,0);
 	// ctx.drawImage(leftHand, 400, leftY, 100, 100);
 	// ctx.drawImage(rightHand, 520, 500, 100, 100);
 	// ctx.drawImage(mikeTyson, 240, 60, 500, 500);
@@ -92,7 +92,7 @@ function retract(e){
 		console.log('right5');
 	}
 	clearCanvas();
-	ctx.drawImage(background,0,0);
+	ctx.drawImage(gameBoard,0,0);
 	ctx.drawImage(leftHand, 400, 500, 100, 100);
 	ctx.drawImage(rightHand, 520, rightY, 100, 100);
 	ctx.drawImage(mikeTyson, 240, 60, 500, 500);
@@ -101,13 +101,17 @@ function retract(e){
 //scoreboard
 
 //timer
-timer();
+
+var time = 60;
 function timer(){
 	setTimeout(function(){
 		time--;
 		timerDiv.innerHTML = time;
 		timer();
 	}, 1000);
+		if (time === 0) {
+			alert('Game Over');
+		}
 }
 //check for win
 // var a = //player ones score
@@ -124,5 +128,9 @@ function timer(){
 //reset button
 
 //start game button
+start.addEventListener("click", startGame);
 
+function startGame(){
+	timer();
+}
 //instructions button
