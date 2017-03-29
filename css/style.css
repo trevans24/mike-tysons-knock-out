@@ -33,7 +33,7 @@ h2 {
 	text-align: center;
 	font-size: 20px;
 	font-family: "Press Start 2P";
-	margin-left: 100px;
+	margin-left: 200px;
 }
 
 #score-board {
@@ -51,7 +51,7 @@ h2 {
 	font-family: "Press Start 2P";
 }
 
-#p1score{
+#p1score {
 	float: left;
 	padding-top: 10px;
 	border: 3px solid #71B1EC;
@@ -60,8 +60,36 @@ h2 {
 	height: 30px;
 	width: 100px;
 	margin-top: 10px;
-	s
 	text-align: center;
+	font-size: 20px;
+	font-family: "Press Start 2P";
+}
+
+.score-p1 {
+	margin-left: 200px;
+	clear: both;
+	float: left;
+	font-size: 20px;
+	font-family: "Press Start 2P";
+}
+
+#p2score {
+	margin-right: 200px;
+	float: right;
+	padding-top: 10px;
+	border: 3px solid #71B1EC;
+	background-color: #00023F;
+	color: white;
+	height: 30px;
+	width: 100px;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-family: "Press Start 2P";
+}
+
+.score-p2 {
+	float: right;
 	font-size: 20px;
 	font-family: "Press Start 2P";
 }
@@ -84,7 +112,7 @@ h2 {
 	height: 30px;
 	width: 100px;
 	margin-top: 10px;
-	margin-right: 120px;
+	margin-right: 200px;
 	text-align: center;
 	font-size: 20px;
 	font-family: "Press Start 2P";
