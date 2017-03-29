@@ -20,10 +20,12 @@ var canvas = document.querySelector('#game-board'),
 	s,
 	scoreDiv = document.querySelector('#score-board'),
 	timerDiv = document.querySelector('#timer'),
-	playerScore = document.querySelector('#p1score'),
+	player1Score = document.querySelector('#p1score'),
+	player2Score = document.querySelector('#p2score'),
 	start = document.querySelector('#start'),
 	instructions = document.querySelector('#instructions'),
 	instruction = document.querySelector('#instruction'),
+	reset = document.querySelector('#reset'),
 	currentPlayer = 1;
 
 //canvas size
@@ -36,7 +38,6 @@ leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
 pow.src = "images/pow.png";
-star.src = "images/star.png";
 
 //on load up canvas is drawn
 console.log('test1');
@@ -84,7 +85,7 @@ function punch(e){
 		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, rightY, 100, 100);
-		ctx.drawImage(pow, 475, 0, 300, 300);
+		// ctx.drawImage(pow, 475, 0, 300, 300);
 		score1();
 	}
 	console.log('right3');
@@ -131,10 +132,21 @@ function stopScore(){
 	clearTimeout(s);
 	score = s;
 }
-
-//player 1 scoreboard
+//switch players or current players
+function switchPlayer(){
+	if(currentPlayer === 1){
+		currentPlayer = 2;
+	} else {
+		win();
+	}
+}
+//append player score to appropriate scoreboard
 function scoreboard(){
-	score = s;
+	if (currentPlayer === 1){
+		player1Score.innerHTML += scoreDiv.innerHTML;
+	} else {
+		player2Score.innerHTML += scoreDiv.innerHTML;
+	}
 }
 //timer go
 function timer(){
@@ -160,14 +172,7 @@ function stopTime(){
 	clearTimeout(t);
 	time = 60;
 }
-//switch players
-function switchPlayer(){
-	if(currentPlayer === 1){
-		currentPlayer = 2;
-	} else {
-		win();
-	}
-}
+
 
 //check for win
 // var a = //player ones score
@@ -182,6 +187,12 @@ function switchPlayer(){
 // };
 
 //reset button
+reset.addEventListener("click", reset);
+
+function reset(){
+	scoreDiv.innerHTML = "";
+	timerDiv.innerHTML = "";
+}
 
 //start game button
 start.addEventListener("click", startGame);
