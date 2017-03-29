@@ -17,6 +17,7 @@ var canvas = document.querySelector('#game-board'),
 	time = 60,
 	t,
 	score = -1,
+	scoreA,
 	s,
 	s1,
 	scoreDiv = document.querySelector('#score-board'),
@@ -159,22 +160,25 @@ function score1(){
 		score ++;
 		scoreDiv.innerHTML = score;
 		console.log('4');
+		stopScore();
 	});
 
 }
 
 function score2(){
 	s1 = setTimeout(function(){
+		score = -1;
 		score ++;
 		scoreDiv.innerHTML = score;
 		console.log('10');
-	})
+		stopScore();
+	});
 }
 
 function stopScore(){
 	if (time === 0);
 	clearTimeout(s);
-	score = s;
+	clearTimeout(s1);
 	console.log('5');
 }
 
