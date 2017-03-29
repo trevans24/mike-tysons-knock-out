@@ -23,6 +23,7 @@ var canvas = document.querySelector('#game-board'),
 	playerScore = document.querySelector('#p1score'),
 	start = document.querySelector('#start'),
 	instructions = document.querySelector('#instructions'),
+	instruction = document.querySelector('#instruction'),
 	currentPlayer = 1;
 
 //canvas size
@@ -191,6 +192,12 @@ function startGame(){
 	score1();
 }
 //instructions button
-// instructions.addEventListener("click", ){
+instruction.addEventListener("click", show);
 
-// }
+function show(){
+	if (instructions.style.display === 'none'){
+		instructions.style.display = 'block';
+} else {
+	instructions.style.display = 'none';
+}
+}
