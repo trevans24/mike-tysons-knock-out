@@ -17,9 +17,7 @@ var canvas = document.querySelector('#game-board'),
 	time = 60,
 	t,
 	score = -1,
-	scoreA,
 	s,
-	s1,
 	scoreDiv = document.querySelector('#score-board'),
 	timerDiv = document.querySelector('#timer'),
 	player1Score = document.querySelector('#p1score'),
@@ -158,38 +156,42 @@ function stopTime(){
 function score1(){
 	s = setTimeout(function(){
 		score ++;
-		scoreDiv.innerHTML = score;
+		scoreDiv.innerText = score;
 		console.log('4');
 		stopScore();
+		console.log(score);
 	});
 
 }
 
-function score2(){
-	s1 = setTimeout(function(){
-		score = -1;
-		score ++;
-		scoreDiv.innerHTML = score;
-		console.log('10');
-		stopScore();
-	});
-}
+// function score2(){
+// 	s1 = setTimeout(function(){
+// 		score = -1;
+// 		score ++;
+// 		scoreDiv.innerHTML = score;
+// 		console.log('10');
+// 		stopScore();
+// 	});
+// }
 
 function stopScore(){
-	if (time === 0);
-	clearTimeout(s);
-	clearTimeout(s1);
+	if (time === 0 && currentPlayer === 1){
+		clearTimeout(s);
+	} else if (time === 0 && currentPlayer === 2){
+		clearTimeout(s);
+	}
+	
 	console.log('5');
 }
 
 //switch players or current players
-currentPlayerDiv.innerHTML = currentPlayer;
 function switchPlayer(){
 	if(currentPlayer === 1){
+		currentPlayerDiv.innerHTML = currentPlayer;
 		console.log(currentPlayer + " 1");
 		currentPlayer ++;
 		console.log('6');
-	} else {
+	} else if( currentPlayer === 2){
 		console.log(currentPlayer + " 2");
 		currentPlayerDiv.innerHTML = currentPlayer;
 		currentPlayer --;
@@ -202,23 +204,34 @@ function scoreboard(){
 	if (currentPlayer === 1){
 		player1Score.innerHTML += scoreDiv.innerHTML;
 		console.log('8');
-	} else {
+	} else if (currentPlayer === 2){
 		player2Score.innerHTML += scoreDiv.innerHTML;
 		console.log('9');
 	}
 }
 
 //check for win
+console.log(player1Score.innerHTML);
+console.log(player2Score.innerHTML);
 function win(){
-	if (player1Score.innerHTML > player2Score.innerHTML){
+	if (player1Score.innerText > player2Score.innerText){
 		alert("Player 1 Wins!");
 		console.log('11');
-	} else if (player2Score.innerHTML > player1Score.innerHTML){
+		console.log(score);
+		console.log(player1Score.innerHTML);
+		console.log(player2Score.innerHTML);
+	}if (player2Score.innerText > player1Score.innerText){
 		alert("Player 2 Wins!");
 		console.log('12');
-	}else {
+		console.log(score);
+		console.log(player1Score.innerHTML);
+		console.log(player2Score.innerHTML);
+	}if (player1Score.innerText === player2Score.innerText){
 		alert("Draw");
 		console.log('13');
+		console.log(score);
+		console.log(player1Score.innerHTML);
+		console.log(player2Score.innerHTML);
 	}
 }
 
@@ -226,10 +239,7 @@ function win(){
 reset.addEventListener("click", reset);
 
 function reset(){
-	scoreDiv.innerHTML = "0";
-	timerDiv.innerHTML = "60";
-	player1Score.innerHTML = "0";
-	player2Score.innerHTML = "0";
+	location.reload();
 }
 
 //start game button
@@ -245,7 +255,8 @@ round.addEventListener("click", nextRound);
 
 function nextRound(){
 	timer();
-	score2();
+	score1();
+	score = -1;
 	switchPlayer();
 	currentPlayerDiv.innerHTML = "2";
 }
