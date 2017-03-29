@@ -133,12 +133,16 @@ function timer(){
 }
 
 function timeZero(){
-	if (time === 0) {
-			alert('Round Over');
-			stopTime();
-			scoreboard();
-			console.log('2');
-		}
+	if (time === 0 && currentPlayer === 1) {
+		alert('Round 1 Over');
+		stopTime();
+		scoreboard();
+		console.log('2');
+	}else if (time === 0 && currentPlayer === 2){
+		stopTime();
+		scoreboard();
+		win();
+	}
 }
 
 //timer stop
@@ -181,13 +185,11 @@ function switchPlayer(){
 		console.log(currentPlayer + " 1");
 		currentPlayer ++;
 		console.log('6');
-		// win();
 	} else {
 		console.log(currentPlayer + " 2");
 		currentPlayerDiv.innerHTML = currentPlayer;
 		currentPlayer --;
 		console.log('7');
-		// win();
 	}
 }
 
