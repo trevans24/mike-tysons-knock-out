@@ -135,7 +135,7 @@ function timer(){
 
 function timeZero(){
 	if (time === 0 && currentPlayer === 1) {
-		alert('Round 1 Over');
+		alert("Round Over, Player 2's turn");
 		stopTime();
 		scoreboard();
 		console.log('2');
@@ -212,10 +212,13 @@ function scoreboard(){
 function win(){
 	if (player1Score.innerHTML > player2Score.innerHTML){
 		alert("Player 1 Wins!");
+		console.log('11');
 	} else if (player2Score.innerHTML > player1Score.innerHTML){
 		alert("Player 2 Wins!");
+		console.log('12');
 	}else {
 		alert("Draw");
+		console.log('13');
 	}
 }
 
@@ -244,6 +247,7 @@ function nextRound(){
 	timer();
 	score2();
 	switchPlayer();
+	currentPlayerDiv.innerHTML = "2";
 }
 
 //instructions button
