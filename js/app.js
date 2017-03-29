@@ -42,7 +42,6 @@ mikeTyson.src = "images/mike-tyson.png";
 pow.src = "images/pow.png";
 
 //on load up canvas is drawn
-console.log('test1');
 gameBoard.onload = function(){
 	ctx.drawImage(gameBoard,0,0);
 	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
@@ -51,23 +50,17 @@ gameBoard.onload = function(){
 };
 
 // function to help animation of elements, clears canvas for new drawings
-console.log('test2');
 function clearCanvas(){
 	canvas.width = canvas.width;
 }
 
 //punch animation on keypress
-console.log('test3');
 document.onkeydown = punch;
 document.onkeyup = retract;
 
-console.log('test4');
 function punch(e){
 	if(e.keyCode == 65){
-		console.log('left1');
 		leftY -= 175;
-		console.log('left2');
-	
 		clearCanvas();
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
@@ -75,48 +68,32 @@ function punch(e){
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		score1();
 	} 
-	console.log('left3');
-
 	if (e.keyCode == 68){
-		console.log('right1');
 		rightY -= 175;
-		console.log('right2');
-
 		clearCanvas();
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, rightY, 100, 100);
-		// ctx.drawImage(pow, 475, 0, 300, 300);
 		score1();
 	}
-	console.log('right3');
 }
 
-console.log('test5');
 function retract(e){
 	if(e.keyCode == 65){
-		console.log('left4');
 		leftY += 175;
-		console.log('left5');
-
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 		ctx.drawImage(leftHand, 400, leftY, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
-		console.log('left6');
 	} 
 
 	if (e.keyCode == 68){
-		console.log('right4');
 		rightY += 175;
-		console.log('right5');
-
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, rightY, 100, 100);
-		console.log('right6');
 	}
 	
 }
@@ -127,7 +104,6 @@ function timer(){
 		timerDiv.innerHTML = time;
 		timer();
 	}, 1000);
-	console.log('1');
 	timeZero();
 }
 
@@ -136,7 +112,6 @@ function timeZero(){
 		alert("Round Over, Player 2's turn");
 		stopTime();
 		scoreboard();
-		console.log('2');
 	}else if (time === 0 && currentPlayer === 2){
 		stopTime();
 		scoreboard();
@@ -148,7 +123,6 @@ function timeZero(){
 function stopTime(){
 	clearTimeout(t);
 	time = 60;
-	console.log('3');
 }
 
 
@@ -157,22 +131,10 @@ function score1(){
 	s = setTimeout(function(){
 		score ++;
 		scoreDiv.innerText = score;
-		console.log('4');
 		stopScore();
-		console.log(score);
 	});
 
 }
-
-// function score2(){
-// 	s1 = setTimeout(function(){
-// 		score = -1;
-// 		score ++;
-// 		scoreDiv.innerHTML = score;
-// 		console.log('10');
-// 		stopScore();
-// 	});
-// }
 
 function stopScore(){
 	if (time === 0 && currentPlayer === 1){
@@ -180,22 +142,17 @@ function stopScore(){
 	} else if (time === 0 && currentPlayer === 2){
 		clearTimeout(s);
 	}
-	
-	console.log('5');
 }
 
 //switch players or current players
 function switchPlayer(){
 	if(currentPlayer === 1){
 		currentPlayerDiv.innerHTML = currentPlayer;
-		console.log(currentPlayer + " 1");
 		currentPlayer ++;
 		console.log('6');
 	} else if( currentPlayer === 2){
-		console.log(currentPlayer + " 2");
 		currentPlayerDiv.innerHTML = currentPlayer;
 		currentPlayer --;
-		console.log('7');
 	}
 }
 
@@ -203,35 +160,19 @@ function switchPlayer(){
 function scoreboard(){
 	if (currentPlayer === 1){
 		player1Score.innerHTML += scoreDiv.innerHTML;
-		console.log('8');
 	} else if (currentPlayer === 2){
 		player2Score.innerHTML += scoreDiv.innerHTML;
-		console.log('9');
 	}
 }
 
 //check for win
-console.log(player1Score.innerHTML);
-console.log(player2Score.innerHTML);
 function win(){
 	if (player1Score.innerText > player2Score.innerText){
 		alert("Player 1 Wins!");
-		console.log('11');
-		console.log(score);
-		console.log(player1Score.innerHTML);
-		console.log(player2Score.innerHTML);
 	}if (player2Score.innerText > player1Score.innerText){
 		alert("Player 2 Wins!");
-		console.log('12');
-		console.log(score);
-		console.log(player1Score.innerHTML);
-		console.log(player2Score.innerHTML);
 	}if (player1Score.innerText === player2Score.innerText){
 		alert("Draw");
-		console.log('13');
-		console.log(score);
-		console.log(player1Score.innerHTML);
-		console.log(player2Score.innerHTML);
 	}
 }
 
@@ -239,7 +180,7 @@ function win(){
 reset.addEventListener("click", reset);
 
 function reset(){
-	location.reload();
+	window.location.reload();
 }
 
 //start game button
@@ -271,3 +212,7 @@ function show(){
 	instructions.style.display = 'none';
 }
 }
+
+//storage
+// sessionStorage.setItem('score', player1score);
+// sessionStorage.getItem(score);
