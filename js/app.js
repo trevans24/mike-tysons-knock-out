@@ -48,9 +48,6 @@ endRound.src = "images/end-of-round.png";
 //on load up canvas is drawn
 gameBoard.onload = function(){
 	ctx.drawImage(gameBoard, 0, 0);
-	ctx.drawImage(mikeTyson, 240, 100, 500, 500);
-	ctx.drawImage(leftHand, 400, 400, 100, 100);
-	ctx.drawImage(rightHand, 520, 400, 100, 100);
 	ctx.drawImage(instruct, 165, 100, 700, 400);
 };
 //Gameboard start Round
@@ -186,16 +183,19 @@ function win(){
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player1win, 210, 210, 600,174);
+		reset.style.opacity = '1';
 	}if (player2Score.innerText > player1Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player2win, 210, 210, 600,174);
+		reset.style.opacity = '1';
 	}if (player1Score.innerText === player2Score.innerText){
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(draw, 210, 210, 600,174);
+		reset.style.opacity = '1';
 	}
 }
 
@@ -203,7 +203,12 @@ function win(){
 reset.addEventListener("click", reset);
 
 function reset(){
+	player1Score.innerText = "";
+	player2Score.innerText = "";
+	time = "";
+	score = "";
 	reset.style.opacity = '0';
+	start.style.opacity = '1';
 }
 
 //start game button

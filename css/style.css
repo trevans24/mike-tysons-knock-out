@@ -241,6 +241,10 @@ a {
 	margin-right: 0px;
 }
 
+#reset {
+	opacity: 0;
+}
+
 ./*alert {
 	background-color: #CD00FF;
 	border: 3px solid black;
