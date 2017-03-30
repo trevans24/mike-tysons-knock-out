@@ -28,6 +28,14 @@ var canvas = document.querySelector('#game-board'),
 	instruction = document.querySelector('#instruction'),
 	reset = document.querySelector('#reset'),
 	round = document.querySelector('#nextRound'),
+	hit = document.querySelector('#punch'),
+	boxing = document.querySelector('#boxing'),
+	intro = document.querySelector('#intro'),
+	winner = document.querySelector('#win'),
+	gameOver = document.querySelector('#game-over'),
+	rematch = document.querySelector('#rematch'),
+	roundStart = document.querySelector('#round-start'),
+	itsTime = document.querySelector('#its-time'),
 	currentPlayer = 1;
 
 //canvas size
@@ -47,6 +55,7 @@ endRound.src = "images/end-of-round.png";
 
 //on load up canvas is drawn
 gameBoard.onload = function(){
+	winner.play();
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(instruct, 165, 100, 700, 400);
 };
@@ -69,6 +78,7 @@ document.onkeyup = retract;
 
 function punch(e){
 	if(e.keyCode == 65){
+		hit.play();
 		leftY -= 175;
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0);
@@ -78,13 +88,14 @@ function punch(e){
 		score1();
 	} 
 	if (e.keyCode == 68){
+		hit.play();
 		rightY -= 175;
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(mikeTyson, 240, 100, 500, 500);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, rightY, 100, 100);
-		score1();
+		score1();		
 	}
 }
 
@@ -122,6 +133,7 @@ function timeZero(){
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(endRound, 150, 100, 700, 400);
+
 		stopTime();
 		scoreboard();
 		round.style.opacity = '1';
@@ -136,6 +148,7 @@ function timeZero(){
 function stopTime(){
 	clearTimeout(t);
 	time = 60;
+
 }
 
 
@@ -154,6 +167,7 @@ function stopScore(){
 		clearTimeout(s);
 	} else if (time === 0 && currentPlayer === 2){
 		clearTimeout(s);
+
 	}
 }
 
@@ -184,18 +198,21 @@ function win(){
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player1win, 210, 210, 600,174);
 		reset.style.opacity = '1';
+		winner.play();
 	}if (player2Score.innerText > player1Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player2win, 210, 210, 600,174);
 		reset.style.opacity = '1';
+		winner.play();
 	}if (player1Score.innerText === player2Score.innerText){
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(leftHand, 400, 400, 100, 100);
 		ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(draw, 210, 210, 600,174);
 		reset.style.opacity = '1';
+		winner.play();
 	}
 }
 
@@ -203,6 +220,7 @@ function win(){
 reset.addEventListener("click", reset);
 
 function reset(){
+	rematch.play();
 	player1Score.innerText = "";
 	player2Score.innerText = "";
 	time = "";
@@ -216,6 +234,7 @@ start.addEventListener("click", startGame);
 
 function startGame(){
 	gameBoard.startRound();
+	roundStart.play();
 	start.style.opacity = '0';
 	timer();
 	score1();
@@ -224,6 +243,7 @@ function startGame(){
 round.addEventListener("click", nextRound);
 
 function nextRound(){
+	// boxing.play();
 	timer();
 	score1();
 	score = -1;
@@ -236,6 +256,7 @@ function nextRound(){
 instruction.addEventListener("click", hide);
 	
 function hide(){
+	itsTime.play();
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(mikeTyson, 240, 100, 500, 500);
 	ctx.drawImage(leftHand, 400, 400, 100, 100);
