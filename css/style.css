@@ -1,9 +1,22 @@
-/*title of game*/
+/*background image*/
+html {
+	background-color: #00023F;
+}
+
+.punchOut {
+	height: 520px;
+	background: url('../images/nes-controller.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*title of game @ main landing page*/
 h1 {
 	font-family: "Press Start 2P";
 	text-align: center;
-	font-size: 48px;
-	background: -webkit-linear-gradient(#FCFBFC, #2CEF2E);
+	font-size: 108px;
+	padding-left: 25px;
+	background: -webkit-linear-gradient(#F29925, #BE2C20);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -11,15 +24,15 @@ h1 {
 h2 {
 	font-family: "Press Start 2P";
 	text-align: center;
-	font-size: 38px;
-	background: -webkit-linear-gradient(#FCFBFC, #2CEF2E);
+	font-size: 68px;
+	background: -webkit-linear-gradient(#F29925, #BE2C20);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .heading {
-	background: url("../images/background.png");
 	height: 200px;
+	/*background: url('../images/background.png');*/
 }
 
 /*scoreboard*/
@@ -29,7 +42,7 @@ h2 {
 
 .score-p {
 	float: left;
-	color: #4840D8;
+	color: white;
 	text-align: center;
 	font-size: 20px;
 	font-family: "Press Start 2P";
@@ -68,7 +81,7 @@ h2 {
 
 .player-p {
 	float: left;
-	color: #4840D8;
+	color: white;
 	text-align: center;
 	font-size: 20px;
 	font-family: "Press Start 2P";
@@ -90,6 +103,7 @@ h2 {
 }
 
 .score-p1 {
+	color: white;
 	margin-left: 200px;
 	clear: both;
 	float: left;
@@ -113,6 +127,7 @@ h2 {
 }
 
 .score-p2 {
+	color: white;
 	float: right;
 	font-size: 20px;
 	font-family: "Press Start 2P";
@@ -121,7 +136,7 @@ h2 {
 
 .time-p {
 	float: right;
-	color: #4840D8;
+	color: white;
 	text-align: center;
 	font-size: 20px;
 	font-family: "Press Start 2P";
@@ -177,10 +192,20 @@ canvas {
 	color: red;
 }
 
-/*bottom buttons*/
+/*buttons*/
 .buttons {
 	margin-left: 350px;
 }
+
+.buttons1 {
+	/*margin: 50px 0 0 250px;*/
+	background: url('../images/ring.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
+
 button {
 	background-color: #CD00FF;
 	border: 3px solid black;

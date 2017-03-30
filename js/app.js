@@ -1,15 +1,11 @@
-//game board
-
 //variables needed
-console.log('test');
 var canvas = document.querySelector('#game-board'),
 	ctx = canvas.getContext('2d'),
 	gameBoard = new Image(),
 	leftHand = new Image(),
 	rightHand = new Image(),
 	mikeTyson = new Image(),
-	pow = new Image(),
-	star = new Image(),
+	instruct = new Image(),
 	leftX = 400,
 	leftY = 400,
 	rightX = 520,
@@ -39,7 +35,7 @@ gameBoard.src = "images/boxing-ring.png";
 leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
-pow.src = "images/pow.png";
+instruct.src = "images/instructions.png";
 
 //on load up canvas is drawn
 gameBoard.onload = function(){
@@ -150,6 +146,7 @@ function switchPlayer(){
 		currentPlayerDiv.innerHTML = currentPlayer;
 		currentPlayer ++;
 		console.log('6');
+		reset.style.opacity = '1';
 	} else if( currentPlayer === 2){
 		currentPlayerDiv.innerHTML = currentPlayer;
 		currentPlayer --;
@@ -180,13 +177,14 @@ function win(){
 reset.addEventListener("click", reset);
 
 function reset(){
-	window.location.reload();
+	reset.style.opacity = '0';
 }
 
 //start game button
 start.addEventListener("click", startGame);
 
 function startGame(){
+	gameBoard.onload();
 	start.style.opacity = '0';
 	timer();
 	score1();
@@ -204,13 +202,14 @@ function nextRound(){
 
 //instructions button
 instruction.addEventListener("click", show);
-
+	
 function show(){
-	if (instructions.style.display === 'none'){
-		instructions.style.display = 'block';
-} else {
-	instructions.style.display = 'none';
-}
+	ctx.drawImage(instruct, 165, 100, 700, 400);
+// 	if (instructions.style.display === 'none'){
+// 		instructions.style.display = 'block';
+// } else {
+// 	instructions.style.display = 'none';
+// }
 }
 
 //storage
