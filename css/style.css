@@ -195,7 +195,7 @@ canvas {
 
 /*buttons*/
 .buttons {
-	margin-left: 350px;
+	margin-left: 250px;
 }
 
 .buttons1 {
@@ -205,9 +205,6 @@ canvas {
 	background-size: cover;
 	text-align: center;
 }
-
-
-
 
 button {
 	background-color: #CD00FF;
@@ -222,9 +219,44 @@ button {
 }
 
 button:hover {
-	opacity: .6;
+	opacity: .8;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-family: "Press Start 2P";
+	font-size: 16px;
+}
+
+#start {
+	opacity: 0;
+}
+
+#nextRound {
+	opacity: 0;
 }
 
 #message {
 	margin-right: 0px;
 }
+
+/*.alert {
+	background-color: #CD00FF;
+	border: 3px solid black;
+	margin: 0 auto;
+	height: 60px;
+	width: 750px;
+	margin-top: 40px;
+	padding-top: 20px;
+	color: white;
+	font-family: "Press Start 2P";
+	font-size: 48px;
+	text-align: center;
+}*/
+
+//font for game alerts
+/*@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://fonts.google.com/specimen/Press+Start+2P');
+}*/

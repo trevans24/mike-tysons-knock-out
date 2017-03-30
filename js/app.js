@@ -6,6 +6,9 @@ var canvas = document.querySelector('#game-board'),
 	rightHand = new Image(),
 	mikeTyson = new Image(),
 	instruct = new Image(),
+	player1win = new Image(),
+	player2win = new Image(),
+	draw = new Image(),
 	leftX = 400,
 	leftY = 400,
 	rightX = 520,
@@ -36,9 +39,20 @@ leftHand.src = "images/boxing-glove-left.png";
 rightHand.src = "images/boxing-glove-right.png";
 mikeTyson.src = "images/mike-tyson.png";
 instruct.src = "images/instructions.png";
+player1win.src = "images/player1-win.png";
+player2win.src = "images/player2-win.png";
+draw.src = "images/rematch.png";
 
 //on load up canvas is drawn
 gameBoard.onload = function(){
+	ctx.drawImage(gameBoard,0,0);
+	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	ctx.drawImage(leftHand, 400, 400, 100, 100);
+	ctx.drawImage(rightHand, 520, 400, 100, 100);
+	ctx.drawImage(instruct, 165, 100, 700, 400);
+};
+//Gameboard start Round
+gameBoard.startRound = function(){
 	ctx.drawImage(gameBoard,0,0);
 	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
 	ctx.drawImage(leftHand, 400, 400, 100, 100);
@@ -108,6 +122,7 @@ function timeZero(){
 		alert("Round Over, Player 2's turn");
 		stopTime();
 		scoreboard();
+		round.style.opacity = '1';
 	}else if (time === 0 && currentPlayer === 2){
 		stopTime();
 		scoreboard();
@@ -165,11 +180,20 @@ function scoreboard(){
 //check for win
 function win(){
 	if (player1Score.innerText > player2Score.innerText){
-		alert("Player 1 Wins!");
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(leftHand, 400, 400, 100, 100);
+		ctx.drawImage(rightHand, 520, 400, 100, 100);
+		ctx.drawImage(player1win, 210, 210, 600,174);
 	}if (player2Score.innerText > player1Score.innerText){
-		alert("Player 2 Wins!");
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(leftHand, 400, 400, 100, 100);
+		ctx.drawImage(rightHand, 520, 400, 100, 100);
+		ctx.drawImage(player2win, 210, 210, 600,174);
 	}if (player1Score.innerText === player2Score.innerText){
-		alert("Draw");
+		ctx.drawImage(gameBoard,0,0);
+		ctx.drawImage(leftHand, 400, 400, 100, 100);
+		ctx.drawImage(rightHand, 520, 400, 100, 100);
+		ctx.drawImage(draw, 210, 210, 600,174);
 	}
 }
 
@@ -184,7 +208,7 @@ function reset(){
 start.addEventListener("click", startGame);
 
 function startGame(){
-	gameBoard.onload();
+	gameBoard.startRound();
 	start.style.opacity = '0';
 	timer();
 	score1();
@@ -198,18 +222,19 @@ function nextRound(){
 	score = -1;
 	switchPlayer();
 	currentPlayerDiv.innerHTML = "2";
+	round.style.opacity = '0';
 }
 
 //instructions button
-instruction.addEventListener("click", show);
+instruction.addEventListener("click", hide);
 	
-function show(){
-	ctx.drawImage(instruct, 165, 100, 700, 400);
-// 	if (instructions.style.display === 'none'){
-// 		instructions.style.display = 'block';
-// } else {
-// 	instructions.style.display = 'none';
-// }
+function hide(){
+	ctx.drawImage(gameBoard,0,0);
+	ctx.drawImage(mikeTyson, 240, 160, 500, 500);
+	ctx.drawImage(leftHand, 400, 400, 100, 100);
+	ctx.drawImage(rightHand, 520, 400, 100, 100);
+	start.style.opacity = '1';
+
 }
 
 //storage
