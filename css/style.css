@@ -16,6 +16,7 @@ h1 {
 	text-align: center;
 	font-size: 108px;
 	padding-left: 25px;
+	padding-bottom: 50px;
 	background: -webkit-linear-gradient(#F29925, #BE2C20);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -25,14 +26,14 @@ h2 {
 	font-family: "Press Start 2P";
 	text-align: center;
 	font-size: 68px;
-	background: -webkit-linear-gradient(#F29925, #BE2C20);
+	padding-top: 80px;
+	background: -webkit-linear-gradient(#BE2C20, #F29925);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .heading {
 	height: 200px;
-	/*background: url('../images/background.png');*/
 }
 
 /*scoreboard*/
@@ -206,6 +207,8 @@ canvas {
 }
 
 
+
+
 button {
 	background-color: #CD00FF;
 	border: 3px solid black;
@@ -220,4 +223,8 @@ button {
 
 button:hover {
 	opacity: .6;
+}
+
+#message {
+	margin-right: 0px;
 }
