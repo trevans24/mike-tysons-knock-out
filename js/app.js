@@ -50,7 +50,7 @@ canvas.width = 1024;
 canvas.height = 600;
 
 //canvas images
-gameBoard.src = "images/boxing-ring.png";\
+gameBoard.src = "images/boxing-ring.png";
 mikeTyson.src = "images/mike-tyson-standing.png";
 mikeTysonLeft.src = "images/mike-tyson-hit-left.png";
 mikeTysonRight.src = "images/mike-tyson-hit-right.png";
@@ -68,7 +68,7 @@ littleMacLeftEnd.src = "images/little-mac-right-end.png";
 
 //on load up canvas is drawn
 gameBoard.onload = function(){
-	winner.play();
+	intro.play();
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(instruct, 165, 100, 700, 400);
 };
@@ -211,12 +211,12 @@ function win(){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(player1win, 210, 210, 600,174);
 		reset.style.opacity = '1';
-		win.play();
+		winner.play();
 	}if (player2Score.innerText > player1Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(player2win, 210, 210, 600,174);
 		reset.style.opacity = '1';
-		win.play();
+		winner.play();
 	}if (player1Score.innerText === player2Score.innerText){
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(draw, 210, 210, 600,174);
