@@ -19,9 +19,9 @@ I first wanted to recreate Nintendo's Mike Tyson Punch Out from 1987...However, 
 I took on a lot of design queues from the game itself with a slight addition of my own as the game progressed...
 
 ![](images/Mike_Tyson's_Punch-Out!!.jpg)
-![](images/mike-tyson-punch-out-characters-ranked2.jpg)
-![](images/mike-vs-mike.jpeg)
-![](images/NES-Punch-Out.jpeg)
+![](https://s-media-cache-ak0.pinimg.com/originals/29/48/76/2948769fbe1d1a5d26285e94ae4d0ec9.jpg)
+![](https://i.ytimg.com/vi/mfEOHcGFchY/maxresdefault.jpg)
+![](http://vignette1.wikia.nocookie.net/villains/images/5/56/Mike_Tyson_Punch_Out.gif/revision/latest?cb=20110211044240)
 ![](images/round1.png)
 
 Using Canvas allowed me to make the game and design it at the same time, which added to appeal for building future games for fun. However, some of the issues are that there is definetly bugs within Canvas itself, possibly still in a Beta stage? Besides that it allowed for a total game feel the entire time. This would be great for creating your own animations later once it has better development. I currently find use in game creation, but the sky is the limit on this element.
