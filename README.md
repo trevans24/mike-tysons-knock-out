@@ -5,11 +5,11 @@
 
 ## Technologies used
 1. Canvas Element (started on Firefox 1.5)
-  *Animation on keydown and keyup
+--*Animation on keydown and keyup
 2. Audio Tags
-  *allows for sound effects to happen, onload, and on click events
+--*allows for sound effects to happen, onload, and on click events
 3. Google Fonts
-  *Because awesome fonts add greatness to your page
+--*Because awesome fonts add greatness to your page
 4. Pure JS
 5. -webkit-linear-gradient
 
