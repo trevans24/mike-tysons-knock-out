@@ -19,7 +19,7 @@ I first wanted to recreate Nintendo's Mike Tyson Punch Out from 1987...However, 
 I took on a lot of design queues from the game itself with a slight addition of my own as the game progressed...
 
 ![](images/Mike_Tyson's_Punch-Out!!.jpg)
-![](images/mike-tyson-punch-out-characters-ranked2.png)
+![](images/mike-tyson-punch-out-characters-ranked2.jpg)
 ![](images/mike-vs-mike.jpeg)
 ![](images/NES-Punch-Out.jpeg)
 ![](images/round1.png)
