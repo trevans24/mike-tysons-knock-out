@@ -2,8 +2,6 @@
 var canvas = document.querySelector('#game-board'),
 	ctx = canvas.getContext('2d'),
 	gameBoard = new Image(),
-	// leftHand = new Image(),
-	// rightHand = new Image(),
 	mikeTyson = new Image(),
 	mikeTysonLeft = new Image(),
 	mikeTysonRight = new Image(),
@@ -52,9 +50,7 @@ canvas.width = 1024;
 canvas.height = 600;
 
 //canvas images
-gameBoard.src = "images/boxing-ring.png";
-// leftHand.src = "images/boxing-glove-left.png";
-// rightHand.src = "images/boxing-glove-right.png";
+gameBoard.src = "images/boxing-ring.png";\
 mikeTyson.src = "images/mike-tyson-standing.png";
 mikeTysonLeft.src = "images/mike-tyson-hit-left.png";
 mikeTysonRight.src = "images/mike-tyson-hit-right.png";
@@ -75,16 +71,12 @@ gameBoard.onload = function(){
 	winner.play();
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(instruct, 165, 100, 700, 400);
-	// ctx.drawImage(mikeTysonLeft, 440, 200, 140, 250);
-	// ctx.drawImage(littleMacLeft, 440, 250, 140, 250);
 };
 //Gameboard start Round
 gameBoard.startRound = function(){
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(mikeTyson, 440, 200, 140, 250);
-	ctx.drawImage(littleMac, 440, 100, 140, 250);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
+	ctx.drawImage(littleMac, 440, 250, 140, 250);
 };
 
 // function to help animation of elements, clears canvas for new drawings
@@ -99,23 +91,17 @@ document.onkeyup = retract;
 
 function punch(e){
 	if(e.keyCode == 65){
-		// leftY -= 175;
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(mikeTysonLeft, 440, 200, 140, 250);
 		ctx.drawImage(littleMacLeft, 440, 250, 140, 250);
-		// ctx.drawImage(leftHand, 400, leftY, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 		score1();
 	} 
 	if (e.keyCode == 68){
-		// rightY -= 175;
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(mikeTysonRight, 440, 200, 140, 250);
-		ctx.drawImage(littleMacReft, 440, 250, 140, 250);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, rightY, 100, 100);
+		ctx.drawImage(littleMacRight, 440, 250, 140, 250);
 		score1();		
 	}
 }
@@ -137,20 +123,14 @@ function punchEnd(e){
 
 function retract(e){
 	if(e.keyCode == 65){
-		// leftY += 175;
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(mikeTyson, 440, 200, 140, 250);
 		ctx.drawImage(littleMac, 440, 250, 140, 250);
-		// ctx.drawImage(leftHand, 400, leftY, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 	} 
 	if (e.keyCode == 68){
-		// rightY += 175;
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(mikeTyson, 440, 200, 140, 250);
 		ctx.drawImage(littleMac, 440, 250, 140, 250);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, rightY, 100, 100);
 	}
 	
 }
@@ -167,8 +147,6 @@ function timer(){
 function timeZero(){
 	if (time === 0 && currentPlayer === 1) {
 		ctx.drawImage(gameBoard, 0, 0);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(endRound, 150, 100, 700, 400);
 		roundStart.play();
 		stopTime();
@@ -231,22 +209,16 @@ function scoreboard(){
 function win(){
 	if (player1Score.innerText > player2Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player1win, 210, 210, 600,174);
 		reset.style.opacity = '1';
 		win.play();
 	}if (player2Score.innerText > player1Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(player2win, 210, 210, 600,174);
 		reset.style.opacity = '1';
 		win.play();
 	}if (player1Score.innerText === player2Score.innerText){
 		ctx.drawImage(gameBoard,0,0);
-		// ctx.drawImage(leftHand, 400, 400, 100, 100);
-		// ctx.drawImage(rightHand, 520, 400, 100, 100);
 		ctx.drawImage(draw, 210, 210, 600,174);
 		reset.style.opacity = '1';
 		rematch.play();
@@ -296,8 +268,6 @@ function hide(){
 	itsTime.play();
 	ctx.drawImage(gameBoard, 0, 0);
 	ctx.drawImage(mikeTyson, 440, 200, 140, 250);
-	// ctx.drawImage(leftHand, 400, 400, 100, 100);
-	// ctx.drawImage(rightHand, 520, 400, 100, 100);
 	start.style.opacity = '1';
 	instruction.style.opacity = '0';
 
