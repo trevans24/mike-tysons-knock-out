@@ -5,7 +5,7 @@ html {
 
 .punchOut {
 	height: 520px;
-	background: url('../images/nes-controller.png');
+	background: url('../images/mr-t-vs-mike-tyson.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -195,7 +195,7 @@ canvas {
 
 /*buttons*/
 .buttons {
-	margin-left: 250px;
+	margin-left: 150px;
 }
 
 .buttons1 {
