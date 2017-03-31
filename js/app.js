@@ -226,17 +226,17 @@ function win(){
 }
 
 //reset button
-reset.addEventListener("click", reset);
+// reset.addEventListener("click", reset);
 
-function reset(){
-	rematch.play();
-	player1Score.innerText = "";
-	player2Score.innerText = "";
-	time = "";
-	score = "";
-	reset.style.opacity = '0';
-	start.style.opacity = '1';
-}
+// function reset(){
+// 	rematch.play();
+// 	player1Score.innerText = "";
+// 	player2Score.innerText = "";
+// 	time = "";
+// 	score = "";
+// 	reset.style.opacity = '0';
+// 	start.style.opacity = '1';
+// }
 
 //start game button
 start.addEventListener("click", startGame);
