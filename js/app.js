@@ -69,7 +69,6 @@ littleMacLeftEnd.src = "images/little-mac-right-end.png";
 //on load up canvas is drawn
 gameBoard.onload = function(){
 	intro.play();
-	// ß
 	ctx.drawImage(instruct, 0, 0, 300, 150);
 };
 //Gameboard start Round
@@ -94,14 +93,14 @@ function punch(e){
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
-		ctx.drawImage(littleMacLeft, 140, 65, 27, 82);
+		ctx.drawImage(littleMacLeft, 140, 35, 27, 82);
 		score1();
 	} 
 	if (e.keyCode == 68){
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonRight, 130, 10, 47, 113);
-		ctx.drawImage(littleMacRight, 140, 65, 27, 82);
+		ctx.drawImage(littleMacRight, 140, 35, 27, 82);
 		score1();		
 	}
 }
@@ -208,7 +207,6 @@ function scoreboard(){
 //check for win
 function win(){
 	if (player1Score.innerText > player2Score.innerText){
-<<<<<<< HEAD
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(player1win, 50, 50, 200, 50);
 		reset.style.opacity = '1';
@@ -222,7 +220,6 @@ function win(){
 		ctx.drawImage(gameBoard,0,0, 300, 300);
 		ctx.drawImage(draw, 50, 50, 200, 50);
 		reset.style.opacity = '1';
-=======
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(player1win, 210, 210, 600,174);
 		// reset.style.opacity = '1';
@@ -236,7 +233,6 @@ function win(){
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(draw, 210, 210, 600,174);
 		// reset.style.opacity = '1';
->>>>>>> 13a2486835e25aed7a6dc3f0e155bd0daebb321d
 		rematch.play();
 	}
 }
