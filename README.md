@@ -16,6 +16,9 @@
 8. -webkit-linear-gradient
 9. jumping animation using translateY(), basically it just moves in y axis 20px and each letter is set on a delay.
 
+##Trello
+![](https://trello.com/b/SnbjYyGu/mike-tyson-s-knock-out-mtko)
+
 ## Approaches to the Game
 I first wanted to recreate Nintendo's Mike Tyson Punch Out from 1987...However, once I started building and creating it the game took on a mind of its own (aka my design brain wouldn't shut up). I really like how the original 8bit games look because they remind me of how much time it took to individually draw each image one pixel at a time to make games. Plus who wouldn't remember the frustration of trying to get the original cartridge games to load after they have been played a few times.
 
@@ -35,3 +38,5 @@ To say that I knew what I was doing during the game build is a far stretch...I h
 
 ## Unsolved Problems
 Looking back on the start of the project really trying to figure out how to make the game look like a Nintendo game would of been really cool. The thing I wanted to figure out was how to use collision and PvP like the original game using either eyboard for both players or 2 computers.
+
+Also would be really cool to make a mobile version of the game, would need to change keydown and up to click events.
