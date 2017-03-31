@@ -46,8 +46,8 @@ var canvas = document.querySelector('#game-board'),
 	currentPlayer = 1;
 
 //canvas size
-canvas.width = 1024;
-canvas.height = 600;
+// canvas.width = 1024;
+// canvas.height = 600;
 
 //canvas images
 gameBoard.src = "images/boxing-ring.png";
@@ -69,14 +69,14 @@ littleMacLeftEnd.src = "images/little-mac-right-end.png";
 //on load up canvas is drawn
 gameBoard.onload = function(){
 	intro.play();
-	ctx.drawImage(gameBoard, 0, 0);
-	ctx.drawImage(instruct, 165, 100, 700, 400);
+	// ß
+	ctx.drawImage(instruct, 0, 0, 300, 150);
 };
 //Gameboard start Round
 gameBoard.startRound = function(){
-	ctx.drawImage(gameBoard, 0, 0);
-	ctx.drawImage(mikeTyson, 440, 200, 140, 250);
-	ctx.drawImage(littleMac, 440, 250, 140, 250);
+	ctx.drawImage(gameBoard, 0, 0, 300, 300);
+	ctx.drawImage(mikeTyson, 130, 10, 47, 113);
+	ctx.drawImage(littleMac, 140, 65, 27, 82);
 };
 
 // function to help animation of elements, clears canvas for new drawings
@@ -92,16 +92,16 @@ document.onkeyup = retract;
 function punch(e){
 	if(e.keyCode == 65){
 		clearCanvas();
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTysonLeft, 440, 200, 140, 250);
-		ctx.drawImage(littleMacLeft, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
+		ctx.drawImage(littleMacLeft, 140, 65, 27, 82);
 		score1();
 	} 
 	if (e.keyCode == 68){
 		clearCanvas();
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTysonRight, 440, 200, 140, 250);
-		ctx.drawImage(littleMacRight, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTysonRight, 130, 10, 47, 113);
+		ctx.drawImage(littleMacRight, 140, 65, 27, 82);
 		score1();		
 	}
 }
@@ -109,28 +109,28 @@ function punch(e){
 function punchEnd(e){
 	if(e.keyCode == 65){
 		clearCanvas();
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTysonLeft, 440, 200, 140, 250);
-		ctx.drawImage(littleMacLeftEnd, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
+		ctx.drawImage(littleMacLeftEnd, 140, 65, 27, 82);
 	}
 	if(e.keyCode == 68){
 		clearCanvas();
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTysonLeft, 440, 200, 140, 250);
-		ctx.drawImage(littleMacReftEnd, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
+		ctx.drawImage(littleMacReftEnd, 140, 65, 27, 82);
 	}
 }
 
 function retract(e){
 	if(e.keyCode == 65){
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTyson, 440, 200, 140, 250);
-		ctx.drawImage(littleMac, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTyson, 130, 10, 47, 113);
+		ctx.drawImage(littleMac, 140, 65, 27, 82);
 	} 
 	if (e.keyCode == 68){
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(mikeTyson, 440, 200, 140, 250);
-		ctx.drawImage(littleMac, 440, 250, 140, 250);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(mikeTyson, 130, 10, 47, 113);
+		ctx.drawImage(littleMac, 140, 65, 27, 82);
 	}
 	
 }
@@ -146,8 +146,8 @@ function timer(){
 
 function timeZero(){
 	if (time === 0 && currentPlayer === 1) {
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(endRound, 150, 100, 700, 400);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(endRound, 50, 25, 200, 100);
 		roundStart.play();
 		stopTime();
 		scoreboard();
@@ -208,18 +208,18 @@ function scoreboard(){
 //check for win
 function win(){
 	if (player1Score.innerText > player2Score.innerText){
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(player1win, 210, 210, 600,174);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(player1win, 50, 50, 200, 50);
 		reset.style.opacity = '1';
 		winner.play();
 	}if (player2Score.innerText > player1Score.innerText){
-		ctx.drawImage(gameBoard, 0, 0);
-		ctx.drawImage(player2win, 210, 210, 600,174);
+		ctx.drawImage(gameBoard, 0, 0, 300, 300);
+		ctx.drawImage(player2win, 50, 50, 200, 50);
 		reset.style.opacity = '1';
 		winner.play();
 	}if (player1Score.innerText === player2Score.innerText){
-		ctx.drawImage(gameBoard,0,0);
-		ctx.drawImage(draw, 210, 210, 600,174);
+		ctx.drawImage(gameBoard,0,0, 300, 300);
+		ctx.drawImage(draw, 50, 50, 200, 50);
 		reset.style.opacity = '1';
 		rematch.play();
 	}
@@ -266,8 +266,8 @@ instruction.addEventListener("click", hide);
 	
 function hide(){
 	itsTime.play();
-	ctx.drawImage(gameBoard, 0, 0);
-	ctx.drawImage(mikeTyson, 440, 200, 140, 250);
+	ctx.drawImage(gameBoard, 0, 0, 300, 300);
+	ctx.drawImage(mikeTyson, 130, 10, 47, 113);
 	start.style.opacity = '1';
 	instruction.style.opacity = '0';
 
@@ -278,8 +278,7 @@ giveUp.addEventListener("click", giveIn);
 
 function giveIn(){
 	gameOver.play();
-	ctx.drawImage(gameBoard, 0, 0);
-	ctx.drawImage(end, 100, 0, 800, 600);
+	ctx.drawImage(end, 0, 0, 300, 150);
 }
 //storage
 // sessionStorage.setItem('score', player1score);
