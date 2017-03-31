@@ -31,3 +31,4 @@ To say that I knew what I was doing during the game build is a far stretch...I h
 [YouTube Help](https://www.youtube.com/channel/UCJWX2cGhemrvksuNSanZ9aA)
 
 ## Unsolved Problems
+Looking back on the start of the project really trying to figure out how to make the game look like a Nintendo game would of been really cool. The thing I wanted to figure out was how to use collision and PvP like the original game using either eyboard for both players or 2 computers.
