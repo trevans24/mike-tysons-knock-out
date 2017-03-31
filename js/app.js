@@ -190,7 +190,7 @@ function stopScore(){
 function switchPlayer(){
 	if(currentPlayer === 1){
 		currentPlayer ++;
-		reset.style.opacity = '1';
+		// reset.style.opacity = '1';
 	} else if( currentPlayer === 2){
 		currentPlayer --;
 	}
@@ -210,33 +210,33 @@ function win(){
 	if (player1Score.innerText > player2Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(player1win, 210, 210, 600,174);
-		reset.style.opacity = '1';
+		// reset.style.opacity = '1';
 		winner.play();
 	}if (player2Score.innerText > player1Score.innerText){
 		ctx.drawImage(gameBoard, 0, 0);
 		ctx.drawImage(player2win, 210, 210, 600,174);
-		reset.style.opacity = '1';
+		// reset.style.opacity = '1';
 		winner.play();
 	}if (player1Score.innerText === player2Score.innerText){
 		ctx.drawImage(gameBoard,0,0);
 		ctx.drawImage(draw, 210, 210, 600,174);
-		reset.style.opacity = '1';
+		// reset.style.opacity = '1';
 		rematch.play();
 	}
 }
 
 //reset button
-reset.addEventListener("click", reset);
+// reset.addEventListener("click", reset);
 
-function reset(){
-	rematch.play();
-	player1Score.innerText = "";
-	player2Score.innerText = "";
-	time = "";
-	score = "";
-	reset.style.opacity = '0';
-	start.style.opacity = '1';
-}
+// function reset(){
+// 	rematch.play();
+// 	player1Score.innerText = "";
+// 	player2Score.innerText = "";
+// 	time = "";
+// 	score = "";
+// 	reset.style.opacity = '0';
+// 	start.style.opacity = '1';
+// }
 
 //start game button
 start.addEventListener("click", startGame);
