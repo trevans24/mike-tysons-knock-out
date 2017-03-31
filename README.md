@@ -1,9 +1,9 @@
 # mike-tysons-knock-out
 
 ## WireFrames
-![](wireframes/main-page.jpeg)
-![](wireframes/landing-page.jpeg)
-![](wireframes/optional-page.jpeg)
+![](wireframes/main-page.png)
+![](wireframes/landing-page.png)
+![](wireframes/optional-page.png)
 
 ## Technologies used
 1. Canvas Element (started on Firefox 1.5)
