@@ -94,14 +94,12 @@ function punch(e){
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
 		ctx.drawImage(littleMacLeft, 140, 35, 27, 82);
-		score1();
 	} 
 	if (e.keyCode == 68){
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonRight, 130, 10, 47, 113);
-		ctx.drawImage(littleMacRight, 140, 35, 27, 82);
-		score1();		
+		ctx.drawImage(littleMacRight, 140, 35, 27, 82);		
 	}
 }
 
@@ -125,11 +123,13 @@ function retract(e){
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTyson, 130, 10, 47, 113);
 		ctx.drawImage(littleMac, 140, 65, 27, 82);
+		score1();
 	} 
 	if (e.keyCode == 68){
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTyson, 130, 10, 47, 113);
 		ctx.drawImage(littleMac, 140, 65, 27, 82);
+		score1();
 	}
 	
 }
