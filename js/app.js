@@ -20,7 +20,7 @@ var canvas = document.querySelector('#game-board'),
 	leftY = 400,
 	rightX = 520,
 	rightY = 400,
-	time = 60,
+	time = 30,
 	t,
 	score = -1,
 	s,
@@ -35,7 +35,7 @@ var canvas = document.querySelector('#game-board'),
 	giveUp = document.querySelector('#giveUp'),
 	reset = document.querySelector('#reset'),
 	round = document.querySelector('#nextRound'),
-	hit = document.querySelector('#punch'),
+	hits = document.querySelector('#punch'),
 	boxing = document.querySelector('#boxing'),
 	intro = document.querySelector('#intro'),
 	winner = document.querySelector('#win'),
@@ -94,12 +94,14 @@ function punch(e){
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonLeft, 130, 10, 47, 113);
 		ctx.drawImage(littleMacLeft, 140, 35, 27, 82);
+		hits.play();
 	} 
 	if (e.keyCode == 68){
 		clearCanvas();
 		ctx.drawImage(gameBoard, 0, 0, 300, 300);
 		ctx.drawImage(mikeTysonRight, 130, 10, 47, 113);
-		ctx.drawImage(littleMacRight, 140, 35, 27, 82);		
+		ctx.drawImage(littleMacRight, 140, 35, 27, 82);
+		hits.play();	
 	}
 }
 
@@ -131,6 +133,12 @@ function retract(e){
 		ctx.drawImage(littleMac, 140, 65, 27, 82);
 		score1();
 	}
+
+// function sound(e){
+// 	if(e.keyCode == 83){
+// 		hit.play();
+// 	}
+// }
 	
 }
 //timer go
